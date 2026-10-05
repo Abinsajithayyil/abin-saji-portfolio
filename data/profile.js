@@ -12,7 +12,8 @@ export const profile = {
   phone: "7012163030",
   linkedin: "https://www.linkedin.com/in/abin-saji-b8a0b3284",
   github: "https://github.com/Abinsajithayyil",
-  resume: "/Abin_Saji_Resume.pdf",
+  resume: "/Abin_Saji_Resume.pdf"
+  photo: "/photo.jpg",
 };
 
 export const about = [
