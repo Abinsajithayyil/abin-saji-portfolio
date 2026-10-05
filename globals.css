@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 245 247 250;
+  --ink: 14 23 38;
+  --muted: 84 96 115;
+  --line: 216 222 232;
+  --accent: 43 78 255;
+  --filament: 12 150 138;
+}
+.dark {
+  --bg: 11 18 32;
+  --ink: 232 237 246;
+  --muted: 148 160 180;
+  --line: 34 45 66;
+  --accent: 111 140 255;
+  --filament: 45 212 191;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body { @apply bg-bg font-body text-ink antialiased; }
+:focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 3px; border-radius: 4px; }
+
+/* Hero: the model prints layer by layer once on load */
+.layer { opacity: 0; animation: lay 0.3s ease-out forwards; animation-delay: calc(var(--i) * 110ms + 400ms); }
+@keyframes lay { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.nozzle { animation: rise 2.4s linear 0.4s forwards; }
+@keyframes rise { from { transform: translateY(0); } to { transform: translateY(var(--rise)); } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .layer { opacity: 1; animation: none; }
+  .nozzle { animation: none; transform: translateY(var(--rise)); }
+}
